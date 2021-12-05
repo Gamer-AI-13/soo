@@ -13,6 +13,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['GET'])
 def homepage():
+    print(request)
     return render_template('index.html')
 
 @app.route('/shrink', methods = ['POST'])
