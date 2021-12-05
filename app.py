@@ -11,7 +11,7 @@ db = urlall(ConfigDATABASE_URL, DATABASENAME)
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['POST'])
 def homepage():
     print(request.data)
     return render_template('index.html')
