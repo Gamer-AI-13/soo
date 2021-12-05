@@ -14,7 +14,7 @@ app = Flask(__name__)
 
 @app.route('/', methods=['POST'])
 def homepage():
-    print(request.content)
+    print(request.json)
     return render_template('index.html')
 
 
