@@ -17,6 +17,13 @@ def homepage():
     print(request.json)
     return render_template('index.html')
 
+@app.route('/web', methods=['GET', 'POST'])
+def homepage():
+    #token = request.args['token']
+    things = json.loads(request.json)
+    print(things)
+    print(things['update_id'])
+    return render_template('index.html')
 
 @app.route('/404')
 def not_found():
