@@ -5,7 +5,7 @@ from datetime import datetime
 from database import urlall
 import random
 import string
-import requests
+import urllib.request
 import json
 DATABASENAME = "urls"
 ConfigDATABASE_URL = os.environ.get("DATABASE_URL", "12345")
@@ -27,7 +27,7 @@ def botpage():
     print(things['message']['text'])
     idofp = things['message']['from']['id']
     q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=hello"
-    req = requests.get(q)
+    req = urllib.request.urlopen(q)
     #print (req.content)
     return
 
