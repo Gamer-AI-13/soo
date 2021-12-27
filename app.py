@@ -24,7 +24,10 @@ def botpage():
     things = request.json
     print(things)
     #newthings = json.loads(things)
-    print(things['message']['text'])
+    somet = things['message']['text']
+    print(somet)
+    if somet is None:
+        return
     idofp = things['message']['from']['id']
     q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=hello"
     req = urllib.request.urlopen(q)
