@@ -26,7 +26,7 @@ def botpage():
     print(things['message']['text'])
     idofp = things['message']['from']['id']
     q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=hello"
-    return
+    return True
 
 @app.route('/404')
 def not_found():
