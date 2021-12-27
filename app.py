@@ -5,6 +5,7 @@ from datetime import datetime
 from database import urlall
 import random
 import string
+import requests
 import json
 DATABASENAME = "urls"
 ConfigDATABASE_URL = os.environ.get("DATABASE_URL", "12345")
