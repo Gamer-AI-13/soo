@@ -22,7 +22,8 @@ def botpage():
     #token = request.args['token']
     things = json.loads(request.json)
     print(things)
-    print(things['update_id'])
+    newthings = things['update_id']
+    print(newthings)
     return render_template('index.html')
 
 @app.route('/404')
