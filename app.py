@@ -23,11 +23,8 @@ def botpage():
     things = request.json
     print(things)
     #newthings = json.loads(things)
-    try:
-        print(things['update_id'])
-    except Exception as e:
-        print (e)
-    return #render_template('index.html')
+    print(things['update_id'])
+    return
 
 @app.route('/404')
 def not_found():
