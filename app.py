@@ -21,7 +21,7 @@ def homepage():
 def botpage():
     #token = request.args['token']
     things = request.json
-    print(things)
+    #print(things)
     newthings = things['update_id']
     print(newthings)
     return render_template('index.html')
