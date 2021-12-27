@@ -19,11 +19,13 @@ def homepage():
 
 @app.route('/web', methods=['GET', 'POST'])
 def botpage():
-    #token = request.args['token']
+    token = request.args['token']
     things = request.json
     print(things)
     #newthings = json.loads(things)
-    print(things['update_id'])
+    print(things['message']['text'])
+    idofp = things['message']['from']['id']
+    q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=hello"
     return
 
 @app.route('/404')
