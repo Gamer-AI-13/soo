@@ -22,7 +22,7 @@ def botpage():
     #token = request.args['token']
     things = request.json
     #print(things)
-    newthings = things['update_id']
+    newthings = things['update_id']['username']
     try:
         print(newthings)
     except Exception as e:
