@@ -29,7 +29,7 @@ def botpage():
     q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=hello"
     req = urllib.request.urlopen(q)
     #print (req.content)
-    return
+    return False
 
 @app.route('/404')
 def not_found():
