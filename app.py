@@ -20,7 +20,7 @@ def homepage():
 @app.route('/web', methods=['GET', 'POST'])
 def botpage():
     #token = request.args['token']
-    things = json.loads(request.json)
+    things = request.json
     print(things)
     newthings = things['update_id']
     print(newthings)
