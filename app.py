@@ -28,6 +28,8 @@ def botpage():
     print(somet)
     if somet is None:
         return
+    if things['my_chat_member']:
+        return
     idofp = things['message']['from']['id']
     q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=hello"
     req = urllib.request.urlopen(q)
