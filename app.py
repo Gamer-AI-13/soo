@@ -19,7 +19,7 @@ def homepage():
     return render_template('index.html')
 
 @app.route('/web', methods=['GET', 'POST'])
-def botpage():
+async def botpage():
     token = request.args['token']
     things = request.json
     print(things)
