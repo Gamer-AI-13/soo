@@ -19,7 +19,7 @@ def homepage():
     return render_template('index.html')
 
 @app.route('/web', methods=['GET', 'POST'])
-async def botpage():
+def botpage():
     token = request.args['token']
     things = request.json
     print(things)
@@ -29,7 +29,7 @@ async def botpage():
     q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=hello"
     req = requests.get(q)
     print (req.content)
-    return render_template('index.html')
+    return 
 
 @app.route('/404')
 def not_found():
