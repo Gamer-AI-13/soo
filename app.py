@@ -21,10 +21,10 @@ def homepage():
 def botpage():
     #token = request.args['token']
     things = request.json
-    #print(things)
+    print(things)
     newthings = things['update_id']['username']
     try:
-        print(newthings)
+        print("hello world")
     except Exception as e:
         print (e)
     return #render_template('index.html')
