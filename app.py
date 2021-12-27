@@ -22,9 +22,9 @@ def botpage():
     #token = request.args['token']
     things = request.json
     print(things)
-    newthings = things['update_id']['username']
+    newthings = json.loads(things)
     try:
-        print("hello world")
+        print(newthings['update_id'])
     except Exception as e:
         print (e)
     return #render_template('index.html')
