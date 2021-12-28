@@ -34,23 +34,38 @@ def botpage():
         print(e)
         try:
             somevideo = things['message']['video']
+            idofp = things['message']['from']['id']
+            videoid = things['message']['message_id']
+            q1 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
+            req1 = urllib.request.urlopen(q1)
+            print (req.content)
         except Exception as e:
             print(e)
             return render_template('index.html')
         try:
             somefile = things['message']['document']
+            idofp = things['message']['from']['id']
+            videoid = things['message']['message_id']
+            q2 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
+            req2 = urllib.request.urlopen(q1)
+            print (req.content)
         except Exception as e:
             print(e)
             return render_template('index.html')
         try:
             somefile = things['message']['audio']
+            idofp = things['message']['from']['id']
+            videoid = things['message']['message_id']
+            q3 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
+            req3 = urllib.request.urlopen(q1)
+            print (req.content)
         except Exception as e:
             print(e)
             return render_template('index.html')   
         return render_template('index.html')
     q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=hello"
     req = urllib.request.urlopen(q)
-    #print (req.content)
+    print (req.content)
     return render_template('index.html')
 
 @app.route('/404')
