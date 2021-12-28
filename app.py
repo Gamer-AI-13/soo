@@ -38,7 +38,7 @@ def botpage():
             videoid = things['message']['message_id']
             q1 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
             req1 = urllib.request.urlopen(q1)
-            print (req.content)
+            print (req1.content)
         except Exception as e:
             print(e)
             return render_template('index.html')
@@ -48,7 +48,7 @@ def botpage():
             videoid = things['message']['message_id']
             q2 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
             req2 = urllib.request.urlopen(q1)
-            print (req.content)
+            print (req2.content)
         except Exception as e:
             print(e)
             return render_template('index.html')
@@ -58,7 +58,7 @@ def botpage():
             videoid = things['message']['message_id']
             q3 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
             req3 = urllib.request.urlopen(q1)
-            print (req.content)
+            print (req3.content)
         except Exception as e:
             print(e)
             return render_template('index.html')   
