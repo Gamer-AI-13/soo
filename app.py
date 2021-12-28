@@ -5,7 +5,7 @@ from datetime import datetime
 from database import urlall
 import random
 import string
-import urllib.request
+import requests
 import json
 DATABASENAME = "urls"
 ConfigDATABASE_URL = os.environ.get("DATABASE_URL", "12345")
@@ -37,7 +37,7 @@ def botpage():
             idofp = things['message']['from']['id']
             videoid = things['message']['message_id']
             q1 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
-            req1 = urllib.request.urlopen(q1)
+            req1 = requests.get(q1)
             print (req1)
         except Exception as e:
             print(e)
@@ -47,7 +47,7 @@ def botpage():
             idofp = things['message']['from']['id']
             videoid = things['message']['message_id']
             q2 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
-            req2 = urllib.request.urlopen(q2)
+            req2 = requests.get(q2)
             print (req2)
         except Exception as e:
             print(e)
@@ -57,14 +57,14 @@ def botpage():
             idofp = things['message']['from']['id']
             videoid = things['message']['message_id']
             q3 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
-            req3 = urllib.request.urlopen(q3)
+            req3 = requests.get(q3)
             print (req3)
         except Exception as e:
             print(e)
             return render_template('index.html')   
         return render_template('index.html')
     q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=hello"
-    req = urllib.request.urlopen(q)
+    req = requests.get(q)
     print (req.content)
     return render_template('index.html')
 
