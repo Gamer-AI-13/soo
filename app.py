@@ -41,7 +41,7 @@ def botpage():
             print (req1)
         except Exception as e:
             print(e)
-            return render_template('index.html')
+            pass
         try:
             somefile = things['message']['document']
             idofp = things['message']['from']['id']
@@ -51,7 +51,7 @@ def botpage():
             print (req2)
         except Exception as e:
             print(e)
-            return render_template('index.html')
+            pass
         try:
             somefile = things['message']['audio']
             idofp = things['message']['from']['id']
