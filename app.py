@@ -24,13 +24,13 @@ def botpage():
     things = request.json
     print(things)
     #newthings = json.loads(things)
-    somet = things['message']['text']
-    print(somet)
-    if somet is None:
+    try:
+        somet = things['message']['text']
+        idofp = things['message']['from']['id']
+        print(somet)
+    except Exception as e:
+        print(e)
         return
-    if things['my_chat_member']:
-        return
-    idofp = things['message']['from']['id']
     q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=hello"
     req = urllib.request.urlopen(q)
     #print (req.content)
