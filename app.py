@@ -26,10 +26,27 @@ def botpage():
     #newthings = json.loads(things)
     try:
         somet = things['message']['text']
+        if "/start" not in somet:
+            return render_template('index.html')
         idofp = things['message']['from']['id']
         print(somet)
     except Exception as e:
         print(e)
+        try:
+            somevideo = things['message']['video']
+        except Exception as e:
+            print(e)
+            return render_template('index.html')
+        try:
+            somefile = things['message']['document']
+        except Exception as e:
+            print(e)
+            return render_template('index.html')
+        try:
+            somefile = things['message']['audio']
+        except Exception as e:
+            print(e)
+            return render_template('index.html')   
         return render_template('index.html')
     q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=hello"
     req = urllib.request.urlopen(q)
