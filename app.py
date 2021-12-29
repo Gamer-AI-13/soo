@@ -82,7 +82,7 @@ def botpage():
     newstr = decodedstr.split("/")
     userid = newstr[0]
     files = newstr[1]
-    q = f"https://api.telegram.org/bot{token}/copyMessage?chat_id={idofp}&from_chat_id={userid}&message_id={files}"
+    q = f"https://api.telegram.org/bot{token}/copyMessage?chat_id={idofp}&from_chat_id={userid}&message_id=https://t.me/betafilestorebot?start={files}"
     req = requests.get(q)
     print (req.content)
     return render_template('index.html')
