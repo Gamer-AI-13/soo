@@ -39,8 +39,9 @@ def botpage():
             videoid = things['message']['message_id']
             toencriptstr = str(idofp) + "/" + str(videoid)
             encriptedstr = aencode("afuckingpasswordkunji", toencriptstr)
-            print(encriptedstr.decode("ascii"))
-            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text={encriptedstr.decode("ascii")}"
+            strr = encriptedstr.decode("ascii")
+            print(strr)
+            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text={strr}"
             q1 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
             req1 = requests.get(q1)
             print (req1)
