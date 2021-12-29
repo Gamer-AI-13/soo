@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template, request, redirect, url_for, jsonify, json
 import os
-from encription import encode, decode
+from encription import aencode, decode
 from datetime import datetime
 from database import urlall
 import random
@@ -38,9 +38,9 @@ def botpage():
             idofp = things['message']['from']['id']
             videoid = things['message']['message_id']
             toencriptstr = str(idofp) + "/" + str(videoid)
-            encriptedstr = encode("afuckingpasswordkunji", toencriptstr)
-            print(encriptedstr)
-            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text={encriptedstr}"
+            encriptedstr = aencode("afuckingpasswordkunji", toencriptstr)
+            print(encriptedstr.decode("ascii"))
+            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text={encriptedstr.decode("ascii")}"
             q1 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
             req1 = requests.get(q1)
             print (req1)

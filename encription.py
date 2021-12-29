@@ -1,6 +1,6 @@
 import six, base64
 
-def encode(key, string):
+def aencode(key, string):
     encoded_chars = []
     for i in range(len(string)):
         key_c = key[i % len(key)]
