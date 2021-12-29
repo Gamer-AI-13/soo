@@ -41,8 +41,8 @@ def botpage():
             encriptedstr = aencode("afuckingpasswordkunji", toencriptstr)
             strr = encriptedstr.decode("ascii")
             print(strr)
-            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text={strr}"
-            q1 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
+            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=https://t.me/betafilestorebot?start={strr}"
+            #q1 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
             req1 = requests.get(q)
             print (req1)
         except Exception as e:
@@ -56,7 +56,7 @@ def botpage():
             encriptedstr = aencode("afuckingpasswordkunji", toencriptstr)
             strr = encriptedstr.decode("ascii")
             print(strr)
-            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text={strr}"
+            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=https://t.me/betafilestorebot?start={strr}"
             #q2 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
             req2 = requests.get(q)
             print (req2)
@@ -71,7 +71,7 @@ def botpage():
             encriptedstr = aencode("afuckingpasswordkunji", toencriptstr)
             strr = encriptedstr.decode("ascii")
             print(strr)
-            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text={strr}"
+            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=https://t.me/betafilestorebot?start={strr}"
             #q3 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
             req3 = requests.get(q)
             print (req3)
@@ -92,7 +92,7 @@ def botpage():
     newstr = decodedstr.split("/")
     userid = newstr[0]
     files = newstr[1]
-    q = f"https://api.telegram.org/bot{token}/copyMessage?chat_id={idofp}&from_chat_id={userid}&message_id=https://t.me/betafilestorebot?start={files}"
+    q = f"https://api.telegram.org/bot{token}/copyMessage?chat_id={idofp}&from_chat_id={userid}&message_id={files}"
     req = requests.get(q)
     print (req.content)
     return render_template('index.html')
