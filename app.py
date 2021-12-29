@@ -70,6 +70,7 @@ def botpage():
             return render_template('index.html')   
         return render_template('index.html')
     recivedstring = somet.strip()[1]
+    print(recivedstring)
     bytestr = recivedstring.encode("ascii")
     print(bytestr)
     decodedstr = decode("afuckingpasswordkunji", bytestr)
