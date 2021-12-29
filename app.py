@@ -70,8 +70,9 @@ def botpage():
             return render_template('index.html')   
         return render_template('index.html')
     recivedstring = somet.strip()[1]
-    print(recivedstring.encode("ascii"))
-    decodedstr = decode("afuckingpasswordkunji", recivedstring)
+    bytestr = recivedstring.encode("ascii")
+    print(bytestr)
+    decodedstr = decode("afuckingpasswordkunji", bytestr)
     print(decodedstr)
     newstr = decodedstr.split("/")
     userid = newstr[0]
