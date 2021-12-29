@@ -69,7 +69,11 @@ def botpage():
             print(e)
             return render_template('index.html')   
         return render_template('index.html')
-    recivedstring = somet.split(" ")[1]
+    try:
+        recivedstring = somet.split(" ")[1]
+    except Exception as e:
+        print(e)
+        return render_template('index.html') 
     print(recivedstring)
     bytestr = recivedstring.encode("ascii")
     print(bytestr)
