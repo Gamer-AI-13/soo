@@ -52,8 +52,13 @@ def botpage():
             somefile = things['message']['document']
             idofp = things['message']['from']['id']
             videoid = things['message']['message_id']
-            q2 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
-            req2 = requests.get(q2)
+            toencriptstr = str(idofp) + "/" + str(videoid)
+            encriptedstr = aencode("afuckingpasswordkunji", toencriptstr)
+            strr = encriptedstr.decode("ascii")
+            print(strr)
+            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text={strr}"
+            #q2 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
+            req2 = requests.get(q)
             print (req2)
         except Exception as e:
             print(e)
@@ -62,8 +67,13 @@ def botpage():
             somefile = things['message']['audio']
             idofp = things['message']['from']['id']
             videoid = things['message']['message_id']
-            q3 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
-            req3 = requests.get(q3)
+            toencriptstr = str(idofp) + "/" + str(videoid)
+            encriptedstr = aencode("afuckingpasswordkunji", toencriptstr)
+            strr = encriptedstr.decode("ascii")
+            print(strr)
+            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text={strr}"
+            #q3 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
+            req3 = requests.get(q)
             print (req3)
         except Exception as e:
             print(e)
