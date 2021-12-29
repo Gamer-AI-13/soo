@@ -43,7 +43,7 @@ def botpage():
             print(strr)
             q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text={strr}"
             q1 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
-            req1 = requests.get(q1)
+            req1 = requests.get(q)
             print (req1)
         except Exception as e:
             print(e)
