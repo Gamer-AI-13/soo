@@ -70,10 +70,13 @@ def botpage():
             return render_template('index.html')   
         return render_template('index.html')
     recivedstring = somet.strip()[1]
-    print(recivedstring)
+    print(recivedstring.encode("ascii"))
     decodedstr = decode("afuckingpasswordkunji", recivedstring)
     print(decodedstr)
-    q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=hello"
+    newstr = decodedstr.split("/")
+    userid = newstr[0]
+    files = newstr[1]
+    q = f"https://api.telegram.org/bot{token}/copyMessage?chat_id={idofp}&from_chat_id={userid}&message_id={files}"
     req = requests.get(q)
     print (req.content)
     return render_template('index.html')
