@@ -69,7 +69,7 @@ def botpage():
             print(e)
             return render_template('index.html')   
         return render_template('index.html')
-    recivedstring = somet.split(" ")[0]
+    recivedstring = somet.split(" ")[1]
     print(recivedstring)
     bytestr = recivedstring.encode("ascii")
     print(bytestr)
