@@ -3,7 +3,7 @@ from flask import render_template, request, redirect, url_for, jsonify, json
 import os
 from encription import aencode, decode
 from datetime import datetime
-import database
+from database import Sessions
 import random
 import string
 import requests
