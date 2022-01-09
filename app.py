@@ -32,10 +32,10 @@ def botpage():
         print(somet)
     except Exception as e:
         details = db.get_bot(token)
+        username = details['username']
         if details['id'] != idofp:
             return
         print(e)
-        else:
         try:
             somevideo = things['message']['video']
             idofp = things['message']['from']['id']
@@ -44,7 +44,7 @@ def botpage():
             encriptedstr = aencode("afuckingpasswordkunji", toencriptstr)
             strr = encriptedstr.decode("ascii")
             print(strr)
-            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=https://t.me/betafilestorebot?start={strr}"
+            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=https://t.me/{username}?start={strr}"
             #q1 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
             req1 = requests.get(q)
             print (req1)
@@ -59,7 +59,7 @@ def botpage():
             encriptedstr = aencode("afuckingpasswordkunji", toencriptstr)
             strr = encriptedstr.decode("ascii")
             print(strr)
-            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=https://t.me/betafilestorebot?start={strr}"
+            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=https://t.me/{username}?start={strr}"
             #q2 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
             req2 = requests.get(q)
             print (req2)
@@ -74,7 +74,7 @@ def botpage():
             encriptedstr = aencode("afuckingpasswordkunji", toencriptstr)
             strr = encriptedstr.decode("ascii")
             print(strr)
-            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=https://t.me/betafilestorebot?start={strr}"
+            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=https://t.me/{username}?start={strr}"
             #q3 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
             req3 = requests.get(q)
             print (req3)
@@ -86,6 +86,9 @@ def botpage():
         recivedstring = somet.split(" ")[1]
     except Exception as e:
         print(e)
+        q = f"https://api.telegram.org/bot{token}/sendMessage?chat_id={idofp}&text=Create your own version of this bot at @I_sharebot"
+        req = requests.get(q)
+        print (req.content)
         return render_template('index.html') 
     print(recivedstring)
     bytestr = recivedstring.encode("ascii")
