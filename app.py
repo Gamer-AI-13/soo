@@ -23,7 +23,7 @@ def botpage():
     token = request.args['token']
     things = request.json
     idofp = things['message']['from']['id']
-    print(things)
+    print(token)
     #newthings = json.loads(things)
     try:
         somet = things['message']['text']
