@@ -9,7 +9,7 @@ import string
 import requests
 import json
 BOT_USERNAME = "bottoken"
-db = Sessions(Config.DATABASE_URL, BOT_USERNAME)
+db = Sessions("mongodb+srv://gamerai:sree123456789@cluster0.7xpnm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", BOT_USERNAME)
 
 app = Flask(__name__)
 
