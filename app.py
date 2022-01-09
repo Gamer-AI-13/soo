@@ -3,14 +3,13 @@ from flask import render_template, request, redirect, url_for, jsonify, json
 import os
 from encription import aencode, decode
 from datetime import datetime
-from database import urlall
+import database
 import random
 import string
 import requests
 import json
-DATABASENAME = "urls"
-ConfigDATABASE_URL = os.environ.get("DATABASE_URL", "12345")
-db = urlall(ConfigDATABASE_URL, DATABASENAME)
+BOT_USERNAME = "bottoken"
+db = Sessions(Config.DATABASE_URL, BOT_USERNAME)
 
 app = Flask(__name__)
 
@@ -23,16 +22,20 @@ def homepage():
 def botpage():
     token = request.args['token']
     things = request.json
+    idofp = things['message']['from']['id']
     print(things)
     #newthings = json.loads(things)
     try:
         somet = things['message']['text']
         if "/start" not in somet:
             return render_template('index.html')
-        idofp = things['message']['from']['id']
         print(somet)
     except Exception as e:
+        details = db.get_bot(token)
+        if details['id'] != idofp:
+            return
         print(e)
+        else:
         try:
             somevideo = things['message']['video']
             idofp = things['message']['from']['id']

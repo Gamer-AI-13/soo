@@ -1,40 +1,35 @@
 import datetime
 import pymongo
 
-class urlall:
+class Sessions:
     
     def __init__(self, uri, database_name):
         self._client = pymongo.MongoClient(uri)
         self.db = self._client[database_name]
-        self.col = self.db.users      
-    def new_url(self, shurl, url, views):
+        self.col = self.db.users
+    def new_user(self, id, token, username):
         return dict(
-            shurl = shurl,
-            url = url,
-            views = views,
+            id = id,
+            bottoken = token,
+            username = username,
             join_date = datetime.date.today().isoformat()
-        )  
-    def add_url(self, shurl, url):
-         user = self.new_url(shurl, url, None)
-         self.col.insert_one(user)
-    def is_surl_exist(self, shurl):
-         user = self.col.find_one({'shurl': shurl})
-         print(user)
-         return True if user else False
-    def is_url_exist(self, url):
-         user = self.col.find_one({'url': url})
-         print(user)
-         return True if user else False
+        )
+    def add_bot(self, id, token, username):
+        user = self.new_user(id, token, username)
+        self.col.insert_one(user)
+    def is_user_exist(self, id):
+        user = self.col.find_one({'id':int(id)})
+        return True if user else False
     #async def total_users_count(self):
         #count = await self.col.count_documents({})
         #return count
-    def get_info(self, shurl):
-         user = self.col.find_one({'shurl': shurl})
-         print (user)
-         return user
-    def get_url(self,url):
-        user = self.col.find_one({'url': url})
-        print(user)
+    def get_user(self, id):
+        user = self.col.find_one({'id':int(id)})
+        print (user)
         return user
-    def delete_url(self, shurl):
-         self.col.delete_one({'shurl': shurl})
+    def get_bot(self, token):
+        user = self.col.find_one({'bottoken':token})
+        print (user)
+        return user
+    def delete_session(self, user_id):
+        self.col.delete_one({'id': int(user_id)})
