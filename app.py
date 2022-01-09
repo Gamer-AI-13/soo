@@ -31,6 +31,7 @@ def botpage():
             return render_template('index.html')
         print(somet)
     except Exception as e:
+        print (token)
         details = db.get_bot(token)
         username = details['username']
         if details['id'] != idofp:
