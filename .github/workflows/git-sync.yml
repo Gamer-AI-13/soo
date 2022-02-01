@@ -1,0 +1,17 @@
+# .github/workflows/git-sync.yml
+
+on: push
+jobs:
+  git-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: git-sync
+        uses: wei/git-sync@v3
+        with:
+          source_repo: "git@gitea.com:realsuperman/file.git"
+          source_branch: "master"
+          destination_repo: "git@github.com:Gamer-AI-13/soo.git"
+          destination_branch: "files-clone"
+          #ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }} # optional
+          source_ssh_private_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCUJA8HAlX3jVB243RsgU9tQC2b4XBoGVBO/TuRGbtjKjO3HY/IO4WMUzdxaGovA9CR0ycMctHZYa3dexxeEVO8xF7aFmXEDadjEjPN/fESbibCTU5qFsGUIAf3dbXxSjS+Vvt/ZwoLFfUZKHDHXBfulHFo5BvyXb3crubU6imHsSuIgdy0UBWdUmBdfiNHAj4aToo/znQa4VZHDLS1pZPaTgk6KSVVB31t6GrY92/kRsq2QiFUAyjdvdgiUiHdHIftorPk6FfROz02gJ7t9LEAPWYvAeynJZgLXKyFE8DA+U8Xans0Fo9R+ji4yNKuxhmE/BvkaUaBRbC/ey8CKjPIrQpLGbFIqfjAqRlcJA2qP5fozoiz0aVq1TWn7MnsC4YueO0pw7ysL3WYL2JzPUrsytz0U1bdd8ga1f2kgRg2oHA/O+o4LIGC0LPw50S/5wfKUcCsnPt+APEhv0Zbftn5NiB3PStqNGA6YwT06TOPWBmdYRYVhGuQO323PgCFSFMdv9KV21Q3vr4DK9/dczrml6b5scKbiSbrw0h9LoN8vCm60BmaqcXLd3yOADQvkxu7iU4I7eFeJALcoHlH0S2B8thYttvrfmeTb1/IC9pHuhmg31Myfn6aanaQ9QBJFN52meANB9VILSZptYSTCM2/vy/IKQuPsHUQqxyH12FVlQ==" # optional, will override `SSH_PRIVATE_KEY`
+          destination_ssh_private_key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQC5jJbsMhk5mC18ODbNCATieOoXjWPq/UxRvyLZsrdT1wURvnhSqxv+JMvK3yN1RSU9tXUoWjiR+/VTp1Ymi3pqs7dj1vS37DfmcSWWaefd5sbxpEN48aDLRpWue7k2U3mbQb0uSDnlSmo8kE966QFIlUrtsvnQKClCPWLjUZfZZ7Oo+pjIKBKO5oxb4uetQXCxg7e0GxP5QHyfy/sycg+e3J0E8azDVsN5yJGeUzAIlGMdEcDR/IfUUe0ITvs+O79W01z30E7ucRhdwEJy7erWIW4FoPYY+6dP1CzDoW+0/Xs6DiLaewwDQIqqZbiFT0Sh1VfGxW7nmhW8Err1K7Ww8r8qb+iUx0ZhldXGhjMOQCmhJpZZSv5H8C/a8cQ2MD+cCm9w0qFRyz0DsbuceiN1Sk1Whh+j8ln7Eo6ug0xDQX0BNpivnUizE5o9pVV8BCcK8snDsb0kRHHnMao3g2DgYeOwjHBNMLyEfzwfjnOQbqq7VIRRzRqtF2wrPPeVP4o0VBis7MT5uespzgXo9yun/Q42reXertm/ZA3gYgq9ESwE7D3q0gp1ux+iSjJs42phobxvk6BCsaybmKza6zXXJs++yoJdAs4PuBMg75+CmR4jlRL/wLHHYoZI5BDVllAmDLd3lDg4flL/71hmmbajTl6vXr6nG/F2zHMjyiweSw=="  # optional, will override `SSH_PRIVATE_KEY`
