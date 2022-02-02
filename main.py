@@ -53,6 +53,21 @@ def botpage():
             print(e)
             pass
         try:
+            somefile = things['message']['photo']
+            idofp = things['message']['from']['id']
+            videoid = things['message']['message_id']
+            toencriptstr = str(idofp) + "/" + str(videoid)
+            encriptedstr = aencode("afuckingpasswordkunji", toencriptstr)
+            strr = encriptedstr.decode("ascii")
+            print(strr)
+            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=https://t.me/{username}?start={strr}"
+            #q2 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
+            req2 = requests.get(q)
+            print (req2)
+        except Exception as e:
+            print(e)
+            pass
+        try:
             somefile = things['message']['document']
             idofp = things['message']['from']['id']
             videoid = things['message']['message_id']
