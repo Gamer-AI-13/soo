@@ -60,9 +60,17 @@ def botpage():
             encriptedstr = aencode("afuckingpasswordkunji", toencriptstr)
             strr = encriptedstr.decode("ascii")
             print(strr)
-            q = f"https://api.telegram.org/bot{token}/sendmessage?chat_id={idofp}&text=https://t.me/{username}?start={strr}"
+            q = f"https://api.telegram.org/bot{token}/sendmessage"
+            payload = {
+                "chat_id":idofp,
+                "text":f"https://t.me/{username}?start={strr}",
+                "reply_markup":"inline_keyboard"[
+                    "text":"hello",
+                    "url":"https://google.com"
+                ]
+            }
             #q2 = f"https://api.telegram.org/bot{token}/forwardMessage?chat_id={idofp}&from_chat_id={idofp}&message_id={videoid}"
-            req2 = requests.get(q)
+            req2 = requests.get(q, payload)
             print (req2)
         except Exception as e:
             print(e)
